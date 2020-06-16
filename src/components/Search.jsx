@@ -14,7 +14,7 @@ const Search = () => {
   });
 
   if (data) {
-    console.log(data.artis);
+    console.log(data.artists);
     dispatch({ type: "CHANGE_NAME_LIST", array: data.artists.items });
   }
 

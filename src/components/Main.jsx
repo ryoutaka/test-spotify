@@ -1,9 +1,10 @@
-import React, { useRef } from "react";
+import React, { useRef, useEffect } from "react";
 import PlayWidget from "react-spotify-widgets";
 import { useSearch } from "react-spotify-api";
-// import axios from "axios";
+import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 import Search from "./Search";
+import jsonpAdapter from "axios-jsonp";
 
 // const get = (token) => {
 //   return (disptach) => {
@@ -21,6 +22,23 @@ import Search from "./Search";
 // };
 
 const Main = () => {
+  useEffect(() => {
+    axios({
+      adapter: jsonpAdapter,
+      url: "https://ja.wikipedia.org/w/api.php",
+      method: "GET",
+      params: {
+        format: "json",
+        action: "query",
+        prop: "revisions",
+        rvprop: "content",
+        rvparse: "",
+        titles: "マイケル・ジャクソン",
+      },
+    }).then((response) => {
+      console.log(response);
+    });
+  });
   const input = useRef(null);
 
   const dispatch = useDispatch();
@@ -45,7 +63,12 @@ const Main = () => {
     <>
       <Search />
       <div style={{ marginBottom: 100 }} />
-      <PlayWidget width={300} height={380} uri={uri} lightTheme={true} />
+      <PlayWidget
+        width={300}
+        height={380}
+        uri={"spotify:artist:66CXWjxzNUsdJxJ2JdwvnR"}
+        lightTheme={true}
+      />
       <input type="text" ref={input} />
       <button
         onClick={() => {
