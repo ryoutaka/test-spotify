@@ -19,7 +19,8 @@
     "react-spotify-widgets": "^0.1.7",
     "redux": "^4.0.5",
     "redux-thunk": "^2.3.0",
-    "request": "^2.88.2"
+    "request": "^2.88.2",
+    "swiper": "^6.0.4"
   },
   "scripts": {
     "start": "react-scripts start",

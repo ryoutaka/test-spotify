@@ -2,25 +2,19 @@ import { createStore, applyMiddleware } from "redux";
 
 import thunk from "redux-thunk";
 
-// const middle = (store) => {
-//   return (next) => {
-//     return (action) => {
-//       console.log(action);
-//       action.then((res) => console.log(res));
-//     };
-//   };
-// };
-
 const initial = {
   access_token: "",
   name: "",
   uri: "",
-  name_lists: [{ name: "nothing", images: ["", "", { imageUrl: "" }] }],
+  name_lists: [{ name: "", images: ["", "", { imageUrl: "" }] }],
   artist_name: "",
+  artist_url: "",
 };
 
 const reducer = (store = initial, action) => {
   switch (action.type) {
+    case "CAHNGE_ARTIST_URL":
+      return { ...store, artist_url: action.url };
     case "CHANGE_NAME_LIST":
       return { ...store, name_lists: action.array };
     case "GET_ACCESS_TOKEN":

@@ -6,44 +6,11 @@ import { useDispatch, useSelector } from "react-redux";
 import Search from "./Search";
 import jsonpAdapter from "axios-jsonp";
 
-// const get = (token) => {
-//   return (disptach) => {
-//     axios({
-//       method: "get",
-//       url: "https://api.spotify.com/v1/artists/1O8CSXsPwEqxcoBE360PPO",
-//       headers: {
-//         Authorization: "Bearer " + token,
-//       },
-//     }).then((res) => {
-//       console.log(res);
-//       disptach({ type: "GET_ARTIST", uri: res.data.uri });
-//     });
-//   };
-// };
-
 const Main = () => {
-  useEffect(() => {
-    axios({
-      adapter: jsonpAdapter,
-      url: "https://ja.wikipedia.org/w/api.php",
-      method: "GET",
-      params: {
-        format: "json",
-        action: "query",
-        prop: "revisions",
-        rvprop: "content",
-        rvparse: "",
-        titles: "マイケル・ジャクソン",
-      },
-    }).then((response) => {
-      console.log(response);
-    });
-  });
-  const input = useRef(null);
-
   const dispatch = useDispatch();
-  const uri = useSelector((store) => store.uri);
+
   const name = useSelector((store) => store.name);
+  const artist_url = useSelector((store) => store.artist_url);
 
   const { data } = useSearch(name, {
     artist: true,
@@ -54,29 +21,11 @@ const Main = () => {
     dispatch({ type: "GET_ARTIST", uri: data.artists.items[0].uri });
   }
 
-  const getText = () => {
-    const text = input.current.value;
-    dispatch({ type: "SEARCH_NAME", name: text });
-  };
-
   return (
     <>
       <Search />
       <div style={{ marginBottom: 100 }} />
-      <PlayWidget
-        width={300}
-        height={380}
-        uri={"spotify:artist:66CXWjxzNUsdJxJ2JdwvnR"}
-        lightTheme={true}
-      />
-      <input type="text" ref={input} />
-      <button
-        onClick={() => {
-          getText();
-        }}
-      >
-        search
-      </button>
+      <PlayWidget width={300} height={380} uri={artist_url} lightTheme={true} />
     </>
   );
 };

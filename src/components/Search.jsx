@@ -14,7 +14,6 @@ const Search = () => {
   });
 
   if (data) {
-    console.log(data.artists);
     dispatch({ type: "CHANGE_NAME_LIST", array: data.artists.items });
   }
 
@@ -26,7 +25,7 @@ const Search = () => {
   return (
     <>
       <input onChange={(e) => search(e)} />
-      <Lists name_lists={name_lists} />
+      {artistName.length ? <Lists name_lists={name_lists} /> : ""}
     </>
   );
 };
