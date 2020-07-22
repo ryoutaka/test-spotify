@@ -9,8 +9,8 @@ import jsonpAdapter from "axios-jsonp";
 const Main = () => {
   const dispatch = useDispatch();
 
-  const name = useSelector((store) => store.name);
-  const artist_url = useSelector((store) => store.artist_url);
+  const name = useSelector((store) => store.artists.name);
+  const artist_url = useSelector((store) => store.artists.artist_url);
 
   const { data } = useSearch(name, {
     artist: true,

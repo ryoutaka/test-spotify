@@ -6,8 +6,8 @@ import { useSearch } from "react-spotify-api";
 
 const Search = () => {
   const dispatch = useDispatch();
-  const name_lists = useSelector((store) => store.name_lists);
-  const artistName = useSelector((store) => store.artist_name);
+  const name_lists = useSelector((store) => store.artists.name_lists);
+  const artistName = useSelector((store) => store.artists.artist_name);
   const { data } = useSearch(artistName, {
     artist: true,
     limit: 8,

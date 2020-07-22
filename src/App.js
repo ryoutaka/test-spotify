@@ -4,7 +4,6 @@ import { useSelector, useDispatch } from "react-redux";
 import qs from "qs";
 import axios from "axios";
 import Main from "./components/Main";
-import Load from "./components/Load";
 
 const another = () => {
   return (dispatch) => {
@@ -32,16 +31,12 @@ function App() {
   useEffect(() => {
     dispatch(another());
   }, []);
-  const token = useSelector((store) => store.access_token);
+  const token = useSelector((store) => store.artists.access_token);
   return (
     <>
-      {token.length ? (
-        <SpotifyApiContext.Provider value={token}>
-          <Main />
-        </SpotifyApiContext.Provider>
-      ) : (
-        <Load />
-      )}
+      <SpotifyApiContext.Provider value={token}>
+        <Main />
+      </SpotifyApiContext.Provider>
     </>
   );
 }
