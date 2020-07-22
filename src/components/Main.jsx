@@ -1,10 +1,9 @@
 import React, { useRef, useEffect } from "react";
 import PlayWidget from "react-spotify-widgets";
 import { useSearch } from "react-spotify-api";
-import axios from "axios";
+
 import { useDispatch, useSelector } from "react-redux";
 import Search from "./Search";
-import jsonpAdapter from "axios-jsonp";
 
 const Main = () => {
   const dispatch = useDispatch();

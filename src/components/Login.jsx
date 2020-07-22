@@ -1,28 +1,36 @@
-import React from "react";
+import React, { useRef } from "react";
 import axios from "axios";
 import TextField from "@material-ui/core/TextField";
+import Button from "@material-ui/core/Button";
 
-const index = () => {
+const Index = () => {
+  const nickNameFeeld = useRef(null);
+  const passWordFeeld = useRef(null);
+
+  const checkInput = (nickName, password) => {};
+
+  const loginFunc = () => {};
+
   return (
     <>
       <TextField
-        required
+        inputRef={nickNameFeeld}
         id="standard-required"
-        label="Required"
-        defaultValue="Hello World"
+        label="nickname"
       />
+
       <TextField
-        disabled
-        id="standard-disabled"
-        label="Disabled"
-        defaultValue="Hello World"
-      />
-      <TextField
+        inputRef={passWordFeeld}
         id="standard-password-input"
         label="Password"
         type="password"
         autoComplete="current-password"
       />
+      <Button onClick={() => loginFunc()} variant="contained" color="primary">
+        Login
+      </Button>
     </>
   );
 };
+
+export default Index;
