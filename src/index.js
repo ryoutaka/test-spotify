@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
 import { Provider } from "react-redux";
-import Login from "./components/Login";
+
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
 import { createInitialStore } from "./redux/store/store";
@@ -12,8 +12,7 @@ const store = createInitialStore()();
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
-      <Login />
-      {/* <App /> */}
+      <App />
     </Provider>
   </React.StrictMode>,
   document.getElementById("root")
