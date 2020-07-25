@@ -1,7 +1,9 @@
 const initial = {
   users: {
+    user_id: 1,
     nickName: "",
-    userFlag: false,
+    loginFlag: true,
+    favoriteArtist: [],
   },
   artists: {
     access_token: "",
