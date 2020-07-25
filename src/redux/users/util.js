@@ -15,40 +15,22 @@ export const sendLoginInfomation = (nickname, password) => {
   };
 };
 export const post_favorite_artist = (user_id, artist_name) => {
-  return (dispatch) => {
-    axios
-      .post("http://localhost:3002/user/post/artist", {
-        data: { user_id, artist_name },
-      })
-      .then((res) => {
-        if (res.data.length) {
-          dispatch(actions.post_artist(res.data[0].artist_name));
-        }
-      });
-  };
+  axios.post("http://localhost:3002/user/post/artist", {
+    data: { user_id, artist_name },
+  });
 };
 export const delete_favorite_artist = (user_id, artist_name) => {
-  return (dispatch) => {
-    axios
-      .delete("http://localhost:3002/user/delete/artist", {
-        data: { user_id, artist_name },
-      })
-      .then((res) => {
-        dispatch(actions.delete_artist(res.data));
-      });
-  };
+  axios.delete("http://localhost:3002/user/delete/artist", {
+    data: { user_id, artist_name },
+  });
 };
 export const get_user_favorite = (user_id) => {
-  axios
-    .post("http://localhost:3002/user/favorite/artist", { data: { user_id } })
-    .then((res) => {
-      console.log(res);
-    });
   return (dispatch) => {
     axios
-      .post("http://localhost:3002/user/favorite/artist", { data: user_id })
+      .post("http://localhost:3002/user/favorite/artist", { data: { user_id } })
       .then((res) => {
         console.log(res);
+        dispatch(actions.get_favorite_artist(res.data));
       });
   };
 };

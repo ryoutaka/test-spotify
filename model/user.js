@@ -42,6 +42,7 @@ router.delete("/delete/artist", (req, res) => {
 
 router.post("/favorite/artist", (req, res) => {
   const { user_id } = req.body.data;
+  console.log(user_id);
   db("favorite_artist")
     .where({ user_id })
     .select("artist_name")

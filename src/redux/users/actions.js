@@ -14,25 +14,10 @@ export const user_fail_login = () => {
   };
 };
 
-export const POST_ARTIST = "POST_ARTIST";
-export const post_artist = (artist_name) => {
+export const GET_FAVORITE_ARTIST = "GET_FAVORITE_ARTIST";
+export const get_favorite_artist = (data) => {
   return {
-    type: "POST_ARTIST",
-    artist_name,
+    type: "GET_FAVORITE_ARTIST",
+    data,
   };
 };
-export const DELETE_ARTIST = "DELETE_ARTIST";
-export const delete_artist = (artist_name) => {
-  return {
-    type: "DELETE_ARTIST",
-    artist_name,
-  };
-};
-
-export const GET_FAVORITE_ARTIST = 'GET_FAVORITE_ARTIST'
-export const get_favorite_artist = (data)=>{
-  return {
-    type:'GET_FAVORITE_ARTIST',
-    data
-  }
-}
