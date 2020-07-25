@@ -9,11 +9,13 @@ const Listitem = (props) => {
   const [checked, setChecked] = React.useState(true);
   const id = useSelector((store) => store.users.user_id);
   const favoriteArtist = useSelector((store) => store.users.favoriteArtist);
-  console.log(favoriteArtist);
   const favorite = (e) => {
     if (e.currentTarget.checked) {
+      utils.get_user_favorite(id);
       dispatch(utils.post_favorite_artist(id, props.name));
     } else {
+      console.log(id);
+      utils.get_user_favorite(id);
       dispatch(utils.delete_favorite_artist(id, props.name));
     }
   };

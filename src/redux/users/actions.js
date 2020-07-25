@@ -28,3 +28,11 @@ export const delete_artist = (artist_name) => {
     artist_name,
   };
 };
+
+export const GET_FAVORITE_ARTIST = 'GET_FAVORITE_ARTIST'
+export const get_favorite_artist = (data)=>{
+  return {
+    type:'GET_FAVORITE_ARTIST',
+    data
+  }
+}

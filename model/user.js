@@ -40,4 +40,18 @@ router.delete("/delete/artist", (req, res) => {
     .catch((result) => res.send("失敗"));
 });
 
+router.post("/favorite/artist", (req, res) => {
+  const { user_id } = req.body.data;
+  db("favorite_artist")
+    .where({ user_id })
+    .select("artist_name")
+    .then((result) => {
+      res.send(result);
+    })
+    .catch(() => {
+      res.status(500);
+      res.send("fail");
+    });
+});
+
 module.exports = router;

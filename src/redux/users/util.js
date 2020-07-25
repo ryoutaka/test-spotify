@@ -28,7 +28,6 @@ export const post_favorite_artist = (user_id, artist_name) => {
   };
 };
 export const delete_favorite_artist = (user_id, artist_name) => {
-  console.log("hh");
   return (dispatch) => {
     axios
       .delete("http://localhost:3002/user/delete/artist", {
@@ -36,6 +35,20 @@ export const delete_favorite_artist = (user_id, artist_name) => {
       })
       .then((res) => {
         dispatch(actions.delete_artist(res.data));
+      });
+  };
+};
+export const get_user_favorite = (user_id) => {
+  axios
+    .post("http://localhost:3002/user/favorite/artist", { data: { user_id } })
+    .then((res) => {
+      console.log(res);
+    });
+  return (dispatch) => {
+    axios
+      .post("http://localhost:3002/user/favorite/artist", { data: user_id })
+      .then((res) => {
+        console.log(res);
       });
   };
 };
