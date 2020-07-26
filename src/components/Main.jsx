@@ -4,6 +4,13 @@ import { useSelector } from "react-redux";
 import Search from "./Search";
 import MyPage from "./MyPage";
 import styled from "styled-components";
+import NavBar from "./NavBar";
+import {
+  HashRouter as Router,
+  Switch,
+  Route,
+  useRouteMatch,
+} from "react-router-dom";
 
 const Widget = styled.div`
   width: 300px;
@@ -12,22 +19,29 @@ const Widget = styled.div`
 `;
 
 const Main = () => {
+  const { path } = useRouteMatch;
   const artist_url = useSelector((store) => store.artists.artist_url);
 
   return (
     <>
-      <Search />
-      <div style={{ marginBottom: 100 }} />
-      <Widget>
-        <PlayWidget
-          width={300}
-          height={380}
-          uri={artist_url}
-          lightTheme={true}
-        />
-      </Widget>
-
-      <MyPage />
+      <Router>
+        {/* <NavBar /> */}
+        <Switch>
+          <Route exact path="/">
+            <Search />
+            <div style={{ marginBottom: 100 }} />
+            <Widget>
+              <PlayWidget
+                width={300}
+                height={380}
+                uri={artist_url}
+                lightTheme={true}
+              />
+            </Widget>
+          </Route>
+          {/* <Route exact path={`${path}/acount`} component={MyPage} /> */}
+        </Switch>
+      </Router>
     </>
   );
 };

@@ -3,7 +3,6 @@ import { SpotifyApiContext } from "react-spotify-api";
 import { useSelector, useDispatch } from "react-redux";
 import qs from "qs";
 import axios from "axios";
-import { BrowserRouter as Router, Route } from "react-router-dom";
 import Main from "./Main";
 
 const another = () => {
@@ -28,18 +27,18 @@ const another = () => {
 };
 
 function App() {
-  const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(another());
-  }, []);
-  const loginFlag = useSelector((store) => store.users.loginFlag);
-  const token = useSelector((store) => store.artists.access_token);
+  // const dispatch = useDispatch();
+  // useEffect(() => {
+  //   dispatch(another());
+  // }, []);
+  // const loginFlag = useSelector((store) => store.users.loginFlag);
+  // const token = useSelector((store) => store.artists.access_token);
   return (
     <>
       <div>
-        <SpotifyApiContext.Provider value={token}>
-          <Main />
-        </SpotifyApiContext.Provider>
+        {/* <SpotifyApiContext.Provider value={token}> */}
+        <Main />
+        {/* </SpotifyApiContext.Provider> */}
       </div>
     </>
   );

@@ -7,7 +7,6 @@ import { sendLoginInfomation } from "../redux/users/util";
 import { Redirect, Switch, Route } from "react-router-dom";
 
 const Index = () => {
-  console.log("h");
   const nickNameFeeld = useRef(null);
   const passWordFeeld = useRef(null);
   const dispatch = useDispatch();
