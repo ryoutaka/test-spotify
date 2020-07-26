@@ -11,7 +11,7 @@ export const userReducer = (state = initialState.users, action) => {
         ...state,
         nickName: action.nickName,
         loginFlag: true,
-        id: action.id,
+        user_id: Number(action.id),
       };
     default:
       return state;

@@ -13,6 +13,7 @@ function App() {
       <Router>
         {loginFlag ? (
           <div>
+            <Redirect to="/" />
             <Play />
           </div>
         ) : (

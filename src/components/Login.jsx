@@ -10,7 +10,7 @@ const Index = () => {
   const nickNameFeeld = useRef(null);
   const passWordFeeld = useRef(null);
   const dispatch = useDispatch();
-  const name = useSelector((store) => store.users.nickName);
+
   const loginFlag = useSelector((store) => store.users.loginFlag);
   const checkInput = (nickName, password) => {};
   console.log(loginFlag);
