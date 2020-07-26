@@ -27,8 +27,19 @@ export const delete_favorite_artist = (user_id, artist_name) => {
 export const get_user_favorite = (user_id) => {
   return (dispatch) => {
     axios.post("/user/favorite/artist", { data: { user_id } }).then((res) => {
-      console.log(res);
       dispatch(actions.get_favorite_artist(res.data));
     });
+  };
+};
+export const sign_up = (nickname, password) => {
+  return (dispatch) => {
+    axios
+      .post("/user/signup", { data: { nickname, password } })
+      .then((result) => {
+        if (typeof result.data[0] !== "string") {
+          const { nickname, id } = result.data[0];
+          dispatch(actions.user_login(nickname, id));
+        }
+      });
   };
 };

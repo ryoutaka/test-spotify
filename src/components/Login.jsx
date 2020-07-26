@@ -13,7 +13,7 @@ const Index = () => {
 
   const loginFlag = useSelector((store) => store.users.loginFlag);
   const checkInput = (nickName, password) => {};
-  console.log(loginFlag);
+
   const loginFunc = () => {
     dispatch(
       sendLoginInfomation(
