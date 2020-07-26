@@ -7,7 +7,7 @@ import { useSelector, useDispatch } from "react-redux";
 import qs from "qs";
 import axios from "axios";
 import Main from "./Main";
-import NavBar from "./NavBar";
+import Nav_Bar from "./Nav_Bar";
 import MyPage from "./MyPage";
 
 const another = () => {
@@ -41,7 +41,7 @@ const Index = () => {
     <>
       <SpotifyApiContext.Provider value={token}>
         <div>
-          <NavBar />
+          <Nav_Bar />
           <Switch>
             <Route exact path="/" component={AfterLogin} />
             <Router exact path="/acount">

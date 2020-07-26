@@ -2,9 +2,9 @@ import React from "react";
 import PlayWidget from "react-spotify-widgets";
 import { useSelector } from "react-redux";
 import Search from "./Search";
-import MyPage from "./MyPage";
+
 import styled from "styled-components";
-import NavBar from "./NavBar";
+
 import {
   HashRouter as Router,
   Switch,
@@ -19,13 +19,11 @@ const Widget = styled.div`
 `;
 
 const Main = () => {
-  const { path } = useRouteMatch;
   const artist_url = useSelector((store) => store.artists.artist_url);
 
   return (
     <>
       <Router>
-        {/* <NavBar /> */}
         <Switch>
           <Route exact path="/">
             <Search />
