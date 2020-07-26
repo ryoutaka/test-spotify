@@ -1,13 +1,13 @@
 import React from "react";
 
 import { useSelector, useDispatch } from "react-redux";
-import { BrowserRouter as Router, Route, Redirect } from "react-router-dom";
+import { HashRouter as Router, Route, Redirect } from "react-router-dom";
 import Home from "./components/Home";
 import Play from "./components/Play";
 
 function App() {
   const loginFlag = useSelector((store) => store.users.loginFlag);
-  console.log("app");
+
   return (
     <>
       <Router>
