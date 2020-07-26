@@ -7,6 +7,7 @@ import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
 const Index = () => {
   return (
     <div>
+      <h1 style={{ textAlign: "center" }}>Short Play Spotify</h1>
       <Switch>
         <Route exact path="/" component={Top} />
         <Route path="/login" component={Login} />

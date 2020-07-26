@@ -1,9 +1,33 @@
 const express = require("express");
 const router = express.Router();
 const db = require("./index");
+const { insert } = require("./index");
 
 router.post("/login", (req, res) => {
   const { nickname, password } = req.body.data;
+  db("users")
+    .where({ nickname, password })
+    .select("id", "nickname")
+    .then((result) => res.send(result))
+    .catch((result) => res.send("passwordかnicknameが間違っています"));
+});
+
+router.post("/signup", async (req, res) => {
+  const { nickname, password } = req.body.data;
+  if (nickname.length < 2 && password.length < 2) {
+    res.send("短すぎです");
+  }
+
+  const allData = await db.select("*").from("users");
+  allData.forEach((obj) => {
+    if (obj.nickname === nickname) {
+      res.send("そのnicknameは登録済で使う事が出来ません");
+    } else if (obj.password === password) {
+      res.send("そのpasswordは登録済で使う事が出来ません");
+    }
+  });
+  await db("users").insert({ nickname, password });
+
   db("users")
     .where({ nickname, password })
     .select("id", "nickname")

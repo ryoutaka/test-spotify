@@ -6,6 +6,7 @@ import Test from "./Test";
 const Andex = () => {
   const dispatch = useDispatch();
   const user_id = useSelector((store) => store.users.user_id);
+  console.log(user_id);
   const favorites = useSelector((store) => store.users.favoriteArtist);
   const result = favorites.map((obj) => <Test name={obj.artist_name} />);
   useEffect(() => {
