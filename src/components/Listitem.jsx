@@ -17,18 +17,22 @@ const Listitem = (props) => {
     }
   };
   const Title = styled.h3`
+    font-size: 2em;
+    margin-bottom: 20px;
+    font-family: "Caveat", cursive, "Kaushan Script", cursive, "Hannari";
+  `;
+  const Container = styled.div`
+    color: palevioletred;
     text-align: center;
   `;
 
   return (
     <>
-      <div>
-        <Title>
-          <h3>{props.name}</h3>
-        </Title>
+      <Container>
+        <Title>{props.name}</Title>
         <div style={{ display: "flex", justifyContent: "space-around" }}>
           <div style={{ textAlign: "center" }}>
-            <p>お気に入り登録</p>
+            <p style={{ marginBottom: "30px" }}>お気に入り登録</p>
             <Checkbox
               onChange={(e) => favoriteCheck(e)}
               icon={<FavoriteBorder />}
@@ -44,7 +48,7 @@ const Listitem = (props) => {
             {props.imageUrl ? <img src={props.imageUrl.url} alt="" /> : ""}
           </div>
         </div>
-      </div>
+      </Container>
     </>
   );
 };

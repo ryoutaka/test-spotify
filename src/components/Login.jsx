@@ -14,6 +14,7 @@ const useStyle = makeStyles({
   button: {
     display: "block",
     margin: "0 auto",
+    background: "#77AF9C",
     // marginLeft: "100%",
   },
 });

@@ -8,14 +8,23 @@ import { useSearch } from "react-spotify-api";
 
 const useStyles = makeStyles({
   root: {
+    marginBottom: "20px",
     width: "400px",
   },
 });
 
-const Title = styled.h1`
-  font-size: 1.5em;
+const HeadBox = styled.div`
   text-align: center;
   color: palevioletred;
+`;
+
+const Title = styled.h2`
+  font-size: 2.5em;
+  margin-bottom: 30px;
+`;
+
+const Text = styled.p`
+  margin-bottom: 20px;
 `;
 
 const Search = () => {
@@ -39,18 +48,19 @@ const Search = () => {
 
   return (
     <>
-      <Title>
-        <h1>アーティストを検索してください</h1>
-        <p>
+      <HeadBox>
+        <Title>アーティストを検索してください</Title>
+        <Text>
           検索したアーティストの画像をclickするとShortバージョンのアルバムが聴けます
-        </p>
+        </Text>
         <TextField
           size="small"
           className={classes.root}
           id="standard-basic"
           onChange={(e) => search(e)}
         />
-      </Title>
+      </HeadBox>
+
       {artistName.length ? <Lists name_lists={name_lists} /> : ""}
     </>
   );

@@ -3,10 +3,21 @@ import Button from "@material-ui/core/Button";
 import Menu from "@material-ui/core/Menu";
 import MenuItem from "@material-ui/core/MenuItem";
 import { HashRouter as Router, Link, useRouteMatch } from "react-router-dom";
+import { makeStyles } from "@material-ui/core/styles";
+
+const useStyle = makeStyles({
+  button: { fontSize: "1.5em", color: "palevioletred", margin: "20px" },
+  item: {
+    color: "palevioletred",
+    textAlign: "center",
+    width: "200px",
+    fontSize: "20px",
+  },
+});
 
 const Index = () => {
   const [anchorEl, setAnchorEl] = React.useState(null);
-
+  const style = useStyle();
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
   };
@@ -16,8 +27,9 @@ const Index = () => {
   };
 
   return (
-    <div>
+    <div style={{ width: "300px" }}>
       <Button
+        className={style.button}
         aria-controls="simple-menu"
         aria-haspopup="true"
         onClick={handleClick}
@@ -25,6 +37,7 @@ const Index = () => {
         Open Menu
       </Button>
       <Menu
+        className={style.Menu}
         id="simple-menu"
         anchorEl={anchorEl}
         keepMounted
@@ -32,10 +45,14 @@ const Index = () => {
         onClose={handleClose}
       >
         <Link to={`/`}>
-          <MenuItem onClick={handleClose}>Top</MenuItem>
+          <MenuItem className={style.item} onClick={handleClose}>
+            Top
+          </MenuItem>
         </Link>
         <Link to={`/acount`}>
-          <MenuItem onClick={handleClose}>My account</MenuItem>
+          <MenuItem className={style.item} onClick={handleClose}>
+            My account
+          </MenuItem>
         </Link>
       </Menu>
     </div>
