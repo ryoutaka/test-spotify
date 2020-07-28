@@ -3,6 +3,13 @@ import * as actions from "./actions";
 
 export const userReducer = (state = initialState.users, action) => {
   switch (action.type) {
+    case actions.LOG_OUT:
+      return {
+        user_id: 0,
+        nickName: "",
+        loginFlag: false,
+        favoriteArtist: [],
+      };
     case actions.GET_FAVORITE_ARTIST:
       console.log(action.data);
       return { ...state, favoriteArtist: action.data };

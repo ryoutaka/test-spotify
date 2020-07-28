@@ -21,3 +21,10 @@ export const get_favorite_artist = (data) => {
     data,
   };
 };
+
+export const LOG_OUT = "LOG_OUT";
+export const log_out = () => {
+  return {
+    type: "LOG_OUT",
+  };
+};
