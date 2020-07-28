@@ -14,6 +14,7 @@ export const userReducer = (state = initialState.users, action) => {
       console.log(action.data);
       return { ...state, favoriteArtist: action.data };
     case actions.USER_LOGIN:
+      console.log(action.id);
       return {
         ...state,
         nickName: action.nickName,

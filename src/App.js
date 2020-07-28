@@ -9,9 +9,10 @@ function App() {
   const dispatch = useDispatch();
   const loginFlag = useSelector((store) => store.users.loginFlag);
   if (localStorage.getItem("loginFlag")) {
-    const user_id = localStorage.getItem("user_login");
+    console.log("if");
+    const user_id = localStorage.getItem("user_id");
     const nickName = localStorage.getItem("nickName");
-    dispatch(user_login(nickName,user_id));
+    dispatch(user_login(nickName, user_id));
   }
 
   return (
