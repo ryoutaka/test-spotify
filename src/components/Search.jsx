@@ -6,12 +6,15 @@ import { makeStyles } from "@material-ui/core/styles";
 import { useDispatch, useSelector } from "react-redux";
 import { useSearch } from "react-spotify-api";
 
-const useStyles = makeStyles({
+const useStyles = makeStyles((theme) => ({
   root: {
     marginBottom: "20px",
     width: "400px",
+    [theme.breakpoints.down("xs")]: {
+      width: "200px",
+    },
   },
-});
+}));
 
 const HeadBox = styled.div`
   text-align: center;
@@ -21,6 +24,9 @@ const HeadBox = styled.div`
 const Title = styled.h2`
   font-size: 2.5em;
   margin-bottom: 30px;
+  @media screen and (max-width: 480px) {
+    font-size: 1.2em;
+  }
 `;
 
 const Text = styled.p`
@@ -51,7 +57,7 @@ const Search = () => {
       <HeadBox>
         <Title>アーティストを検索してください</Title>
         <Text>
-          検索したアーティストの画像をclickするとShortバージョンのアルバムが聴けます
+          検索したアーティストの画像をclickするとShortバージョンの曲が聴けます
         </Text>
         <TextField
           size="small"

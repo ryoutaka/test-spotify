@@ -2,22 +2,37 @@ import React from "react";
 import Button from "@material-ui/core/Button";
 import Menu from "@material-ui/core/Menu";
 import MenuItem from "@material-ui/core/MenuItem";
-import { HashRouter as Router, Link, useRouteMatch } from "react-router-dom";
+import {
+  HashRouter as Router,
+  Link,
+  useRouteMatch,
+  Redirect,
+  useHistory,
+} from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
 import { useDispatch } from "react-redux";
 import { log_out } from "../redux/users/actions";
 
-const useStyle = makeStyles({
-  button: { fontSize: "1.5em", color: "palevioletred", margin: "20px" },
+const useStyle = makeStyles((theme) => ({
+  button: {
+    fontSize: "2em",
+    color: "palevioletred",
+    margin: "20px",
+    [theme.breakpoints.down("xs")]: {
+      fontSize: "1.2em",
+      margin: "10px",
+    },
+  },
   item: {
     color: "palevioletred",
     textAlign: "center",
     width: "200px",
     fontSize: "20px",
   },
-});
+}));
 
 const Index = () => {
+  const history = useHistory();
   const dispatch = useDispatch();
   const [anchorEl, setAnchorEl] = React.useState(null);
   const style = useStyle();
@@ -32,10 +47,11 @@ const Index = () => {
   const logOutFunc = () => {
     localStorage.clear();
     dispatch(log_out());
+    history.push("/");
   };
 
   return (
-    <div style={{ width: "300px" }}>
+    <div>
       <Button
         className={style.button}
         aria-controls="simple-menu"

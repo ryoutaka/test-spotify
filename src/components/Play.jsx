@@ -6,7 +6,6 @@ import { SpotifyApiContext } from "react-spotify-api";
 import { useSelector, useDispatch } from "react-redux";
 import qs from "qs";
 import axios from "axios";
-import Main from "./Main";
 import Nav_Bar from "./Nav_Bar";
 import MyPage from "./MyPage";
 
@@ -36,6 +35,7 @@ const Index = () => {
   useEffect(() => {
     dispatch(another());
   }, []);
+  console.log("play");
   const token = useSelector((store) => store.artists.access_token);
   return (
     <>
