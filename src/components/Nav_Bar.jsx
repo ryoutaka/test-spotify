@@ -2,7 +2,13 @@ import React from "react";
 import Button from "@material-ui/core/Button";
 import Menu from "@material-ui/core/Menu";
 import MenuItem from "@material-ui/core/MenuItem";
-import { HashRouter as Router, Link, useRouteMatch } from "react-router-dom";
+import {
+  HashRouter as Router,
+  Link,
+  useRouteMatch,
+  Redirect,
+  useHistory,
+} from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
 import { useDispatch } from "react-redux";
 import { log_out } from "../redux/users/actions";
@@ -18,6 +24,7 @@ const useStyle = makeStyles({
 });
 
 const Index = () => {
+  const history = useHistory();
   const dispatch = useDispatch();
   const [anchorEl, setAnchorEl] = React.useState(null);
   const style = useStyle();
@@ -32,6 +39,7 @@ const Index = () => {
   const logOutFunc = () => {
     localStorage.clear();
     dispatch(log_out());
+    history.push("/");
   };
 
   return (

@@ -8,8 +8,8 @@ import Play from "./components/Play";
 function App() {
   const dispatch = useDispatch();
   const loginFlag = useSelector((store) => store.users.loginFlag);
+
   if (localStorage.getItem("loginFlag")) {
-    console.log("if");
     const user_id = localStorage.getItem("user_id");
     const nickName = localStorage.getItem("nickName");
     dispatch(user_login(nickName, user_id));

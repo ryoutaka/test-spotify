@@ -23,13 +23,14 @@ const ImageContainer = styled.div`
 
 const Andex = () => {
   const dispatch = useDispatch();
+  const loginFlag = useSelector((store) => store.users.loginFlag);
   const user_id = useSelector((store) => store.users.user_id);
   const favorites = useSelector((store) => store.users.favoriteArtist);
   const result = favorites.map((obj) => <Test name={obj.artist_name} />);
   useEffect(() => {
     dispatch(get_user_favorite(user_id));
   }, []);
-
+  console.log("mypage");
   return (
     <>
       <Container>

@@ -36,6 +36,7 @@ const Index = () => {
   useEffect(() => {
     dispatch(another());
   }, []);
+  console.log('play')
   const token = useSelector((store) => store.artists.access_token);
   return (
     <>
