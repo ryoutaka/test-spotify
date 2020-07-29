@@ -9,6 +9,9 @@ export const sendLoginInfomation = (nickname, password) => {
       .then((res) => {
         if (res.data.length) {
           const { nickname, id } = res.data[0];
+          localStorage.setItem("loginFlag", "true");
+          localStorage.setItem("user_id", String(id));
+          localStorage.setItem("nickName", nickname);
           dispatch(actions.user_login(nickname, id));
         }
       });

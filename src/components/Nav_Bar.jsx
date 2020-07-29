@@ -4,6 +4,8 @@ import Menu from "@material-ui/core/Menu";
 import MenuItem from "@material-ui/core/MenuItem";
 import { HashRouter as Router, Link, useRouteMatch } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
+import { useDispatch } from "react-redux";
+import { log_out } from "../redux/users/actions";
 
 const useStyle = makeStyles({
   button: { fontSize: "1.5em", color: "palevioletred", margin: "20px" },
@@ -16,6 +18,7 @@ const useStyle = makeStyles({
 });
 
 const Index = () => {
+  const dispatch = useDispatch();
   const [anchorEl, setAnchorEl] = React.useState(null);
   const style = useStyle();
   const handleClick = (event) => {
@@ -24,6 +27,11 @@ const Index = () => {
 
   const handleClose = () => {
     setAnchorEl(null);
+  };
+
+  const logOutFunc = () => {
+    localStorage.clear();
+    dispatch(log_out());
   };
 
   return (
@@ -51,9 +59,12 @@ const Index = () => {
         </Link>
         <Link to={`/acount`}>
           <MenuItem className={style.item} onClick={handleClose}>
-            My account
+            Favorite Artists
           </MenuItem>
         </Link>
+        <MenuItem className={style.item} onClick={logOutFunc}>
+          Log Out
+        </MenuItem>
       </Menu>
     </div>
   );

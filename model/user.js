@@ -37,6 +37,7 @@ router.post("/signup", async (req, res) => {
 
 router.post("/post/artist", (req, res) => {
   const { artist_name, user_id } = req.body.data;
+  console.log("id", user_id);
   console.log("post_artist");
   db("favorite_artist")
     .insert({ user_id, artist_name })
@@ -66,7 +67,7 @@ router.delete("/delete/artist", (req, res) => {
 
 router.post("/favorite/artist", (req, res) => {
   const { user_id } = req.body.data;
-  console.log(user_id);
+  console.log("id", user_id);
   db("favorite_artist")
     .where({ user_id })
     .select("artist_name")

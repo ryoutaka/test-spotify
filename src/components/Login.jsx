@@ -15,12 +15,15 @@ const useStyle = makeStyles({
     display: "block",
     margin: "0 auto",
     background: "#77AF9C",
-    // marginLeft: "100%",
   },
 });
 
 const Title = styled.h2`
-  font-size: 1.5em;
+  font-size: 2em;
+  margin-bottom: 20px;
+  @media screen and (max-width: 480px) {
+    font-size: 1.1rem;
+  }
 `;
 
 const Container = styled.div`
@@ -33,8 +36,6 @@ const Index = () => {
   const nickNameFeeld = useRef(null);
   const passWordFeeld = useRef(null);
   const dispatch = useDispatch();
-
-  const loginFlag = useSelector((store) => store.users.loginFlag);
 
   const loginFunc = () => {
     dispatch(

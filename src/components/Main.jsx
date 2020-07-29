@@ -5,12 +5,7 @@ import Search from "./Search";
 
 import styled from "styled-components";
 
-import {
-  HashRouter as Router,
-  Switch,
-  Route,
-  useRouteMatch,
-} from "react-router-dom";
+import { HashRouter as Router, Switch, Route } from "react-router-dom";
 
 const Widget = styled.div`
   width: 300px;
@@ -37,7 +32,6 @@ const Main = () => {
               />
             </Widget>
           </Route>
-          {/* <Route exact path={`${path}/acount`} component={MyPage} /> */}
         </Switch>
       </Router>
     </>

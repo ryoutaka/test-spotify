@@ -15,12 +15,15 @@ const useStyle = makeStyles({
     display: "block",
     margin: "0 auto",
     background: "#77AF9C",
-    // marginLeft: "100%",
   },
 });
 
 const Title = styled.h2`
   font-size: 1.5em;
+  margin-bottom: 20px;
+  @media screen and (max-width: 480px) {
+    font-size: 1.1rem;
+  }
 `;
 
 const Container = styled.div`
