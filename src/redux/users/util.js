@@ -13,6 +13,8 @@ export const sendLoginInfomation = (nickname, password) => {
           localStorage.setItem("user_id", String(id));
           localStorage.setItem("nickName", nickname);
           dispatch(actions.user_login(nickname, id));
+        } else {
+          dispatch(actions.user_fail_login());
         }
       });
   };
@@ -39,7 +41,14 @@ export const sign_up = (nickname, password) => {
     axios
       .post("/user/signup", { data: { nickname, password } })
       .then((result) => {
-        if (typeof result.data[0] !== "string") {
+        if (result.data === 1) {
+          dispatch(actions.sign_up_error("passwordは6文字以上です"));
+        } else if (result.data === 2) {
+          dispatch(actions.sign_up_error("このnicknameは既に登録されています"));
+        } else if (result.data === 3) {
+          dispatch(actions.sign_up_error("このpasswordは既に登録されています"));
+        } else {
+          console.log(result.data);
           const { nickname, id } = result.data[0];
           dispatch(actions.user_login(nickname, id));
         }
