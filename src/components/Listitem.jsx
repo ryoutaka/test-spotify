@@ -26,6 +26,15 @@ const Listitem = (props) => {
     text-align: center;
   `;
 
+  const Image = styled.img`
+    @media screen and (max-width: 480px) {
+      height: 100px;
+      width: 100px;
+      padding: 5px;
+      margin-right: 20px;
+    }
+  `;
+
   return (
     <>
       <Container>
@@ -45,7 +54,7 @@ const Listitem = (props) => {
               dispatch({ type: "CAHNGE_ARTIST_URL", url: props.artist_url });
             }}
           >
-            {props.imageUrl ? <img src={props.imageUrl.url} alt="" /> : ""}
+            {props.imageUrl ? <Image src={props.imageUrl.url} alt="" /> : ""}
           </div>
         </div>
       </Container>

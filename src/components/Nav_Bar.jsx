@@ -13,15 +13,23 @@ import { makeStyles } from "@material-ui/core/styles";
 import { useDispatch } from "react-redux";
 import { log_out } from "../redux/users/actions";
 
-const useStyle = makeStyles({
-  button: { fontSize: "1.5em", color: "palevioletred", margin: "20px" },
+const useStyle = makeStyles((theme) => ({
+  button: {
+    fontSize: "2em",
+    color: "palevioletred",
+    margin: "20px",
+    [theme.breakpoints.down("xs")]: {
+      fontSize: "1.2em",
+      margin: "10px",
+    },
+  },
   item: {
     color: "palevioletred",
     textAlign: "center",
     width: "200px",
     fontSize: "20px",
   },
-});
+}));
 
 const Index = () => {
   const history = useHistory();
@@ -43,7 +51,7 @@ const Index = () => {
   };
 
   return (
-    <div style={{ width: "300px" }}>
+    <div>
       <Button
         className={style.button}
         aria-controls="simple-menu"
