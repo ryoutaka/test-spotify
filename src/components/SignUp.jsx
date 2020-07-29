@@ -1,6 +1,6 @@
 import React, { useRef } from "react";
 import TextField from "@material-ui/core/TextField";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components";
 import { sign_up } from "../redux/users/util";
 import Button from "@material-ui/core/Button";
@@ -26,6 +26,11 @@ const Title = styled.h2`
   }
 `;
 
+const Error = styled.span`
+  font-size: 1em;
+  color: red;
+`;
+
 const Container = styled.div`
   height: 50%;
   width: 50%;
@@ -35,6 +40,7 @@ const Container = styled.div`
 const Index = () => {
   const styles = useStyle();
   const dispatch = useDispatch();
+  const error = useSelector((store) => store.users.signUpErrorMsg);
   const nicknameRef = useRef(null);
   const passwordRef = useRef(null);
   const signUpFunc = () => {
@@ -46,7 +52,8 @@ const Index = () => {
   return (
     <>
       <Container>
-        <Title>SignUp してください</Title>
+        <Title>SignUpしてください</Title>
+        {error.length ? <Error>{error}</Error> : ""}
         <TextField
           fullWidth={true}
           className={styles.textInput}

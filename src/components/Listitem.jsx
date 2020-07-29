@@ -26,6 +26,13 @@ const Listitem = (props) => {
     text-align: center;
   `;
 
+  const ItemContainer = styled.div`
+    display: flex;
+    justify-content: space-around;
+    padding: 10px;
+    margin: 20px;
+  `;
+
   const Image = styled.img`
     @media screen and (max-width: 480px) {
       height: 100px;
@@ -39,7 +46,7 @@ const Listitem = (props) => {
     <>
       <Container>
         <Title>{props.name}</Title>
-        <div style={{ display: "flex", justifyContent: "space-around" }}>
+        <ItemContainer>
           <div style={{ textAlign: "center" }}>
             <p style={{ marginBottom: "30px" }}>お気に入り登録</p>
             <Checkbox
@@ -56,7 +63,7 @@ const Listitem = (props) => {
           >
             {props.imageUrl ? <Image src={props.imageUrl.url} alt="" /> : ""}
           </div>
-        </div>
+        </ItemContainer>
       </Container>
     </>
   );

@@ -4,6 +4,8 @@ const initial = {
     nickName: "",
     loginFlag: false,
     favoriteArtist: [],
+    errorMsg: "",
+    signUpErrorMsg: "",
   },
   artists: {
     access_token: "",

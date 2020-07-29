@@ -28,3 +28,11 @@ export const log_out = () => {
     type: "LOG_OUT",
   };
 };
+
+export const SIGN_UP_ERROR = "SIGN_UP_ERROR";
+export const sign_up_error = (msg) => {
+  return {
+    type: "SIGN_UP_ERROR",
+    msg,
+  };
+};

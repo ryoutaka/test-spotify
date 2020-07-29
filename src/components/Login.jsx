@@ -26,12 +26,18 @@ const Title = styled.h2`
   }
 `;
 
+const Error = styled.span`
+  font-size: 1em;
+  color: red;
+`;
+
 const Container = styled.div`
   height: 50%;
   width: 50%;
   text-align: center;
 `;
 const Index = () => {
+  const error = useSelector((store) => store.users.errorMsg);
   const styles = useStyle();
   const nickNameFeeld = useRef(null);
   const passWordFeeld = useRef(null);
@@ -49,7 +55,8 @@ const Index = () => {
   return (
     <>
       <Container>
-        <Title>Login してください</Title>
+        <Title>Loginしてください</Title>
+        {error.length ? <Error>{error}</Error> : ""}
         <TextField
           fullWidth={true}
           className={styles.textInput}
