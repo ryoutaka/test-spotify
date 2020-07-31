@@ -41,6 +41,7 @@ const Index = () => {
   const styles = useStyle();
   const dispatch = useDispatch();
   const error = useSelector((store) => store.users.signUpErrorMsg);
+  console.log(error);
   const nicknameRef = useRef(null);
   const passwordRef = useRef(null);
   const signUpFunc = () => {
