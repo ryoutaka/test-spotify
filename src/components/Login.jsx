@@ -61,6 +61,7 @@ const Index = () => {
           fullWidth={true}
           className={styles.textInput}
           inputRef={nickNameFeeld}
+          defaultValue="testuser"
           id="standard-required"
           label="nickname"
         />
@@ -69,6 +70,7 @@ const Index = () => {
           fullWidth={true}
           className={styles.textInput}
           inputRef={passWordFeeld}
+          defaultValue="testtest"
           id="standard-password-input"
           label="Password"
           type="password"
