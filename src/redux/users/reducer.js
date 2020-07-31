@@ -14,12 +14,12 @@ export const userReducer = (state = initialState.users, action) => {
         loginFlag: false,
         favoriteArtist: [],
         errorMsg: "",
+        signUpErrorMsg: "",
       };
     case actions.GET_FAVORITE_ARTIST:
       console.log(action.data);
       return { ...state, favoriteArtist: action.data };
     case actions.USER_LOGIN:
-      console.log(action.id);
       return {
         ...state,
         nickName: action.nickName,
