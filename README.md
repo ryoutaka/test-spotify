@@ -1,3 +1,3 @@
 # Short Play Spotify
 
-![Screenshot](shot.png)
+![Screenshot](public/shot.png)
