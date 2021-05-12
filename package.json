@@ -34,7 +34,7 @@
     "request": "^2.88.2",
     "shortid": "^2.2.15",
     "styled-components": "^5.1.1",
-    "swiper": "^6.0.4"
+    "swiper": "^6.5.1"
   },
   "scripts": {
     "start": "node server.js",
